@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment 3: Week 4</title>
+</head>
+<body style="text-align: center">
+    <div>
+        <h1>Art 321 Assignment 3: Week 4</h1>
+        <h2>Steven Leong 10129668</h2>
+        <a href="../index.html">Main Page</a>
+        <p>
+            For my net art piece i thought it would be interesting to design an interactive visual ping map of the world. <br>
+            By that I mean, a user could select a point on the map, ping that location, and actually visualize the time it would take for that ping to return. <br>
+            <br>
+            Ping is a computer network administration software utility used to test the reachability of a host on an Internet Protocol (IP) network.<br>
+            It measures the round-trip time (usually in milliseconds) for messages sent from the originating host to a destination computer that are echoed back to the source.
+            <br>
+            <br>
+            The user would start by seeing a map of the world with their location as a point on the map
+        </p>
+        <img src="../Resources/Newworldmap_my_location.png" style="width: 50%">
+        <p>
+            The user would then pick some point on the map that they want to ping
+        </p>
+        <img src="../Resources/Newworldmap_target_location.png" style="width: 50%">
+
+        <p>
+            It would then show the ping traverse the world toward the destination, ping, and return.
+        </p>
+        <img src="../Resources/Newworldmap_begin_ping.png" style="width: 50%">
+        <img src="../Resources/Newworldmap_greenishyellow_ping.png" style="width: 50%">
+        <img src="../Resources/Newworldmap_orange_ping.png" style="width: 50%">
+        <img src="../Resources/Newworldmap_end_ping.png" style="width: 50%">
+        <img src="../Resources/Newworldmap_end_ping_ping.png" style="width: 50%">
+        <img src="../Resources/Newworldmap_mid_return.png" style="width: 50%">
+        <img src="../Resources/Newworldmap_return.png" style="width: 50%">
+        <p>
+            This animation would last as long as it took for the ping to reach destination and back.<br>
+            The user could then select another point and repeat the animation(previous pings remain on the map)
+        </p>
+        <img src="../Resources/Newworldmap_multi_ping.png" style="width: 50%" >
+        <p>
+            I guess there could be some text that pops up after the ping returns that would indicate the actual ping in seconds, or a table underneath showing the most recent pings.<br>
+            But thats all extra stuff I'd do if I had to implement this. <br>
+            I think this would be a pretty cool visualization of a measurement of data being sent across an Internet communication link.<br>
+        </p>
+        <div style="text-align: left">
+            <p>Some obvious problems I can see with implementing this would be:</p>
+            
+                <ul style="margin-left: 100px; margin-right: 200px">
+                    <li>Since ping is measured in milliseconds, the animation would happen at lightning speed and no one would be able to see it. So maybe I could slow the animation down by some factor relative to the actual ping speed, to make it more visually appealing</li>
+                    <li>I would need to have an accurate list of IP Addresses around the world so that the user could potentially click anywhere in the world as a destination</li>
+                </ul>
+            </div>
+    </div>
+
+</body>
+</html>
