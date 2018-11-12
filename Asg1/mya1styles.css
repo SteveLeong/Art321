@@ -1,82 +1,78 @@
 
 
-body{
+html, body{
     /* background-color: #473030; */
     background-color: #C73232;
 	font-family: Palatino;
 	margin: 0;
-	padding: 0;
+    padding: 0;
+    padding-bottom:60px;
+    height: 100%;
 }
 
 h2{
     text-align: center;
 }
 
-#header-container{
-    width: 1200px;
-    margin: 0 auto;
-    height: 80px;
+#container{
+    min-height: 100%;
 }
 
-.header-bar{
+#main{
+    overflow: auto;
+    padding-bottom: 60px
+}
+
+#header-bar{
     background-color: #8C0000;
     color: #FFF7F7;
     text-shadow: -1px -2px #000, 1px 2px 1px #000, -1px 2px 1px #000, 1px -2px 1px #000;
     height: 80px;
-    width: 100%;
+    /* width: 100%; */
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     font-size: 20px;
 }
 
-.header-bar img{
-    float: left;
-    width: 60px;
-    height: 60px;
-    margin-left: 10px;
-    margin-top: 10px;
+#nav{
+    width: 100%
 }
 
-.header-bar h1{
-    float: left;
-}
-
-.header-bar ul{
-    font-size: 15px;
-    list-style-type: none;
-    text-align: center;
-    display:inline-block;
+#nav ul{
+    font-size: calc(6px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     overflow: hidden;
-    vertical-align:top;
+    margin: 0;
+    padding: 0;
   
 }
-.header-bar li {
-    float: right;
+#nav ul li {
+    list-style: none;
+    float: left;
+    text-align: center;
+    width: 10%; /* fallback for non-calc() browsers */
+    width: calc(100% / 10);
+    box-sizing: border-box;
 }
 
-.header-bar li a {
+#nav ul li a {
     display: block;
     color: white;
-    text-align: center;
-    padding: 16px;
+    padding: 20px 0;
     text-decoration: none;
 }
 
-#title{
-    /* text-align:center; */
-    margin-left: 10px;
-    margin-top: 0px;
-    padding-top: 20px;
+#subHeader{
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    text-shadow: -1px -2px #000, 1px 2px 1px #000, -1px 2px 1px #000, 1px -2px 1px #000;
+    margin: 0;
+    padding: 10px;
 }
 
 #sidebar{
     background-color: #FFF7F7;
     color: #ffffff;
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    margin: 10px;
-    margin-left: 80px;
     border: #0F0000;
     border-style: solid;
     border-radius: 10px;
@@ -85,16 +81,15 @@ h2{
 #sidebar a{
     color: #8C0000;
     text-decoration: none;
+    display: block;
+    padding: 16px;
 }
 
 
 #infoBlock{
     background-color: #FFF7F7;
-    width: 70%;
     height: auto;
-    position: absolute;
-    margin: 10px;
-    margin-left: 300px;
+    position: relative;
     border: #0F0000;
     border-style: solid;
     border-radius: 10px;
@@ -102,8 +97,8 @@ h2{
 
 .content{
     margin: 20px;
-    
 }
+
 
 table, th, td {
     /* border: 1px solid #ddd; */
@@ -123,3 +118,59 @@ td img{
     height: 75px;
 }
 tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+#footer {
+    position:relative;
+    bottom:0;
+    width:100%;
+    height:60px;   /* Height of the footer */
+    background:#8C0000;
+    margin-top: -60px;
+    clear: both;
+ }
+
+#footer p{
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+#footer a{
+    color: white;
+}
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#logo{
+    height: 80px;
+    width: auto;
+}
+
+#logo img{
+    float: left;
+    width: 18%;
+    height: auto;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#logo h1{
+    margin-left: 10px;
+    margin-top: 0px;
+    padding-top: 20px;
+    float: left;
+    font-size:3vw;
+}
