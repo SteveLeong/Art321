@@ -30,3 +30,7 @@
     height: 2px;
     background-color: black;
 }
+
+#header {
+    text-align: center;
+}

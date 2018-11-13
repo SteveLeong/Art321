@@ -1,0 +1,9 @@
+#answers ol li{
+    margin: 5;
+}
+
+#answers ol li img{
+    display: block;
+    width: 90%;
+    padding: 10px;
+}
