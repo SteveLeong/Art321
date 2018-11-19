@@ -1,0 +1,38 @@
+body {
+    background-color: #0D0208;
+    /* background-color: #1F2421; */
+    color: #008F11;
+    /* background-image: url("./resources/MatrixBackground.jpg") */
+}
+
+#container{
+    width: 100%;
+}
+
+#header {
+    text-align: center;
+    font: normal 28px/30px "MATRIX", sans-serif;
+}
+
+
+#controller {
+    background-color: #008F11;
+    text-align: center;
+}
+
+#photo {
+   
+}
+
+canvas {
+    margin: auto;
+    display: block;
+}
+
+#player {
+
+}
+
+#strip {
+
+}
