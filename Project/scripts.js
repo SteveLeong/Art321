@@ -83,8 +83,8 @@ function paintToCanvas() {
     // canvas.width = width;
     // canvas.height = height;
 
-    matrixify();
-    // matrixFilter();
+    //matrixify();
+    matrixFilter();
     //let pixels = ctx.getImageData(0, 0, width, height);
 
     //pixels = matrixify(pixels)
