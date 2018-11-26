@@ -18,21 +18,40 @@ body {
 #controller {
     background-color: #008F11;
     text-align: center;
+    height: 50px;
+}
+
+#controller button{
+    margin: 10px;
+    padding: 5px;
 }
 
 #photo {
-   
+    display: inline-block;
 }
 
 canvas {
     margin: auto;
     display: block;
+    padding: 25px;
+    padding-left: 100px;
 }
 
 #player {
-
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: 200px;
+    right: 100px;
 }
 
 #strip {
+    height: 100px;
+    width: 100%;
+}
 
+#strip a img{
+    height: 100%;
+    width: 150px;
+    margin: 10px;
 }
