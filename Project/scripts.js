@@ -237,17 +237,17 @@ function matrixFilter() {
 
 
 function getVideo() {
-
-    navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-        .then(localMediaStream => {
-            console.log(localMediaStream)
-            video.src = window.URL.createObjectURL(localMediaStream);
-            video.play();
-        })
-        .catch(err => {
-            console.error("Please enable your webcam", err);
-        });
-
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+            .then(localMediaStream => {
+                console.log(localMediaStream)
+                video.src = window.URL.createObjectURL(localMediaStream);
+                video.play();
+            })
+            .catch(err => {
+                console.error("Please enable your webcam", err);
+            });
+    }
 }
 
 function takePhoto() {
