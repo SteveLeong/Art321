@@ -3,16 +3,17 @@ const canvas = document.getElementById("photo");
 const ctx = canvas.getContext("2d");
 const strip = document.getElementById("strip");
 
-ctx.font = "12px monospace";
+ctx.font = "11px monospace";
+
 ctx.fillStyle = "#00BB00";
-var fontSize = 12;
+var fontSize = 11;
 var symbols = new Array(25);
 var symbolData = [];
 
 var streams = [];
 
 
-
+//console.log(ctx.fontSize)
 
 function setup() {
 
@@ -100,7 +101,7 @@ function Stream() {
             }else{
                 ctx.fillStyle = "#00a800";
             }
-            ctx.fillText(symbol.value, symbol.x, symbol.y - 12);
+            ctx.fillText(symbol.value, symbol.x, symbol.y);
             symbol.animate();
         });
     }
@@ -153,7 +154,7 @@ function getSymbols() {
         // get the 'brightness' of the symbol, Black=000, so brightness is the amount of RGB in the symbol
         // getImageData(x, y, width, height)
 
-        var imgData = ctx.getImageData(xcoor, ycoor - 10, 7, 11);
+        var imgData = ctx.getImageData(xcoor, ycoor - 10, 7, fontSize-1);
 
         // total is the total RGB value of the symbol
         var total = 0; //reset
