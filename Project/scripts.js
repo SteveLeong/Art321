@@ -6,7 +6,7 @@ const strip = document.getElementById("strip");
 ctx.font = "12px monospace";
 ctx.fillStyle = "#00BB00";
 var fontSize = 12;
-var symbols = new Array(20);
+var symbols = new Array(25);
 var symbolData = [];
 
 var streams = [];
@@ -29,18 +29,28 @@ function setup() {
       x += fontSize;
     }
 
+    console.log(streams);
+
 }
 
 
-function Symbol(x, y, speed) {
+function Symbol(x, y, speed, first) {
     this.x = x;
     this.y = y;
     this.speed = speed;
-    this.value
+    this.first = first;
+    this.value;
+    this.average;
 
     this.setRandomSymbol = function(){
         var rand = Math.floor(Math.random() * 95);
         this.value = symbolData[rand][1];
+    }
+
+    this.setToVideoSymbol = function(){
+        
+        // this.value = symbolData[this.average][1];
+        this.value = symbols[this.average];
     }
 
     this.animate = function(){
@@ -51,24 +61,47 @@ function Symbol(x, y, speed) {
 
 function Stream() {
     this.symbols = [];
-    this.totalSymbols = Math.round((Math.random() * 35) + 5);
-    this.speed = (Math.random()* 5) + 1;
-
+    // this.totalSymbols = Math.round((Math.random() * (canvas.height / fontSize)) + 30);
+    this.totalSymbols = canvas.height / fontSize;
+    this.speed = (Math.random()* 6) + 3;
+    var first = Math.round(Math.random() * 3) == 1;
     this.generateSymbols = function(x, y) {
         for (var i =0; i <= this.totalSymbols; i++) {
-            symbol = new Symbol(x, y, this.speed);
+            
+            symbol = new Symbol(x, y, this.speed, first);
+            
+            
             symbol.setRandomSymbol();
             this.symbols.push(symbol);
+            
             y -= fontSize;
+            first = false;
         }
     }
 
-    this.render = function() {
+    this.getCorrectSymbols = function() {
         this.symbols.forEach(function(symbol) {
-            ctx.fillStyle = "#00BB00";
-            ctx.fillText(symbol.value, symbol.x, symbol.y);
+
+            var imgData = ctx.getImageData(symbol.x, symbol.y, 7, 12);            
+            var brightness = getBrightness(imgData);
+            total = brightness[0] / brightness[1];
+            symbol.average = Math.floor(total / symbols.length);
+            symbol.setToVideoSymbol();
+
+        });
+    }
+
+    this.render = function() {
+
+        this.symbols.forEach(function(symbol){
+
+            if(symbol.first){
+                ctx.fillStyle = "#09ff08";
+            }else{
+                ctx.fillStyle = "#00a800";
+            }
+            ctx.fillText(symbol.value, symbol.x, symbol.y - 12);
             symbol.animate();
-            //symbol.setRandomSymbol();
         });
     }
 }
@@ -82,14 +115,10 @@ function paintToCanvas() {
     // // console.log(width, height);
     // canvas.width = width;
     // canvas.height = height;
-
-    //matrixify();
-    matrixFilter();
-    //let pixels = ctx.getImageData(0, 0, width, height);
-
-    //pixels = matrixify(pixels)
-
-    //ctx.putImageData(pixels, 0, 0);
+    ctx.drawImage(video, 0, 0);
+    // matrixFilter();
+    matrixify();
+    
 
     requestAnimationFrame(paintToCanvas)
 }
@@ -197,11 +226,23 @@ function getBrightness(imgData) {
 
 
 function matrixify() {
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // ctx.fillStyle = "black";
+    // ctx.fillRect(0, 0, canvas.width, canvas.height);
+    //ctx.fillText()
     streams.forEach(function(stream) {
+        // var newStream = new Stream();
+        // newStream.generateSymbols(stream.x, stream.y)
+        // newStream.render();
+        stream.getCorrectSymbols();
+        // stream.render();
+    });
+
+    ctx.clearRect(0,0, canvas.width, canvas.height);
+
+    streams.forEach(function(stream){
         stream.render();
     });
+    
 }
 
 
@@ -209,7 +250,7 @@ function matrixify() {
 
 function matrixFilter() {
 
-    ctx.drawImage(video, 0, 0);
+    // ctx.drawImage(video, 0, 0);
     var blockWidth = fontSize - 2;
     var blockHeight = fontSize - 1;
 
