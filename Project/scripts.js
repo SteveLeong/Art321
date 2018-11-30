@@ -25,7 +25,7 @@ function setup() {
     var x = 0;
     for (var i = 0; i <= canvas.width / fontSize; i++) {
       var stream = new Stream();
-      stream.generateSymbols(x, (Math.random() - 1000));
+      stream.generateSymbols(x, (Math.random() - 500));
       streams.push(stream);
       x += fontSize;
     }
@@ -64,7 +64,7 @@ function Stream() {
     this.symbols = [];
     // this.totalSymbols = Math.round((Math.random() * (canvas.height / fontSize)) + 30);
     this.totalSymbols = canvas.height / fontSize;
-    this.speed = (Math.random()* 6) + 3;
+    this.speed = (Math.random()* 6) + 2;
     var first = Math.round(Math.random() * 3) == 1;
     this.generateSymbols = function(x, y) {
         for (var i =0; i <= this.totalSymbols; i++) {
