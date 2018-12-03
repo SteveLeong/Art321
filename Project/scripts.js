@@ -302,8 +302,8 @@ function takePhoto() {
     strip.insertBefore(link, strip.firstChild);
 }
 
-setup();
+// setup();
 
-video.addEventListener('canplay', paintToCanvas);
+video.addEventListener('canplay', setup());
 //window.setInterval(draw, 100);
 

@@ -41,8 +41,10 @@ canvas {
     position: absolute;
     width: 250px;
     height: 250px;
-    top: 200px;
-    right: 100px;
+    /* top: 200px;
+    right: 100px; */
+    display: inline-block;
+    margin-left: 100px;
 }
 
 #strip {
@@ -54,4 +56,14 @@ canvas {
     height: 100%;
     width: 150px;
     margin: 10px;
+}
+
+#images{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+#images img{
+    margin: 10;
 }
