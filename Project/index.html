@@ -10,16 +10,25 @@
     <div id="container">
 
         <div id="header">
-            <!-- <h1>MatrixVision</h1>
-            <h3> Steven Leong  10129668</h3> -->
             <img src="./resources/header.png" alt="header" width="350px">
         </div>
 
+        <div id="description">
+            <p>
+                For my Final Project I decided to do an Interactive Artwork inspired by the movie 'Matrix'. 
+                In the movie, there is a scene where the main character sees 'code' in his vision, overlayed on top of reality.
+                I thought it would be cool to recreate this effect using a webcam. There were two main resources I used to create this project. 
+                (1) gave me an outlined steps on how they went about changing the pixels of a webcam. (2) helped me figure out how to 
+                get symbols to stream down.
+            </p>
+        </div>
         <div id="images">
             <img src="./resources/matrixCover.jpg" alt="cover">
             <img src="./resources/Matrix.jpg" alt="matrixVision">
         </div>
-
+        <p style="text-align: center;">
+            Make Sure Your Webcam is Enabled!
+        </p>
         <div id="controller">
             <button onclick="paintToCanvas()">Matrixify</button>
             <button onclick="takePhoto()">Take Photo</button>
@@ -28,6 +37,18 @@
         <video id="player"></video>
         <div id="strip"></div>
 
+        <div id="resources">
+            <h3>Resources:</h3>
+            <a href="http://www.waterfordwebdesign.ie/html5-web-cam-video-to-ascii-demo-matrix-effect/">
+                (1) HTML5 WEB CAM VIDEO TO ASCII DEMO – MATRIX EFFECT
+            </a>
+            <a href="https://www.youtube.com/watch?v=S1TQCi9axzg">
+                (2) Matrix Digital Rain in p5.js with Emily Xie
+            </a>
+            <a href="https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color">
+                (3) Formula to determine brightness of RGB color
+            </a>
+        </div>
     </div>
 
     <script src="scripts.js"></script>

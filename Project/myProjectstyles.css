@@ -67,3 +67,18 @@ canvas {
 #images img{
     margin: 10;
 }
+
+#resources {
+    width: 100%;
+    margin: auto;
+    margin-left: 50px;
+}
+
+#resources a{
+    margin-left: 75px;
+    display: block;
+}
+
+#description {
+    text-align: center;
+}
